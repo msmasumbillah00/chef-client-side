@@ -1,9 +1,11 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { LuLogIn, LuLogOut } from "react-icons/lu";
 import { Link } from "react-router-dom";
+import { UserContext } from "../../context/UserContextProvider";
+import { signOut } from "firebase/auth";
 
 const NAvigation = () => {
-    const user = { displayName: "Md Masum Billah" };
+    const { user, auth } = useContext(UserContext);
     const [isNavOpen, setIsNavOpen] = useState(false);
 
     useEffect(() => {
@@ -12,11 +14,21 @@ const NAvigation = () => {
         });
     }, [])
 
+    const handelLogOut = () => {
+        signOut(auth)
+            .then(() => {
+                alert("You have been logged out")
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    }
+
     return (
         <div className="bg-neutral">
             <div className="navbar container mx-auto">
                 <div className="flex-1">
-                    <a className="btn btn-ghost text-xl">KitchenMaestro</a>
+                    <Link to="/" className="btn btn-ghost text-xl">KitchenMaestro</Link>
                 </div>
                 <div>
                     <button
@@ -30,32 +42,32 @@ const NAvigation = () => {
                         </svg>
                     </button>
                     <div className={`md:flex ${isNavOpen ? 'flex' : 'hidden'} bg-neutral flex-col absolute left-0  ${!isNavOpen ? 'tor-0' : 'top-16'}  p-4 md:static   md:flex-row space-y-2 md:space-y-0 md:space-x-4`}>
-                        <Link href="#" className="text-white btn-ghost px-5">Home</Link>
-                        <Link href="#" className="text-white btn-ghost px-5">About</Link>
-                        <Link href="#" className="text-white btn-ghost px-5">Services</Link>
-                        <Link href="#" className="text-white btn-ghost px-5">Contact</Link>
-                        <Link href="#" className="text-white btn-ghost px-5">Blog</Link>
+                        <Link to="/" className="text-white btn-ghost px-5">Home</Link>
+                        <Link to="#" className="text-white btn-ghost px-5">About</Link>
+                        <Link to="#" className="text-white btn-ghost px-5">Services</Link>
+                        <Link to="#" className="text-white btn-ghost px-5">Contact</Link>
+                        <Link to="#" className="text-white btn-ghost px-5">Blog</Link>
                     </div>
                 </div>
                 <div className="flex-none">
                     {
-                        !user ? <Link><LuLogIn className="text-3xl ms-3" /></Link> :
+                        !user ? <Link to="login"><LuLogIn className="text-3xl ms-3" /></Link> :
                             <div className="dd hover:block dropdown-end">
                                 <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                                     <div className="w-10 rounded-full">
-                                        <img alt="Tailwind CSS Navbar component" src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                                        <img alt="Tailwind CSS Navbar component" src={user.photoURL || `https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg`} />
                                     </div>
                                 </div>
                                 <ul tabIndex={0} className="menu menu-sm rounded dropdown-content mt-3 z-[1] p-2 shadow bg-base-100  w-52">
                                     <li>
-                                        <a className="justify-between">
+                                        <Link to="profile" className="justify-between">
                                             {
                                                 user?.displayName || "Profile"
                                             }
-                                        </a>
+                                        </Link>
                                     </li>
-                                    <li><a>Settings</a></li>
-                                    <li><a>Logout <LuLogOut className="ms-auto"></LuLogOut></a> </li>
+                                    <li><Link to="/register">Register</Link></li>
+                                    <li onClick={handelLogOut}><a>Logout <LuLogOut className="ms-auto"></LuLogOut></a> </li>
                                 </ul>
                             </div>
                     }
