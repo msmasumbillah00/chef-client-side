@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+    min-height: 90vw;
+}
+.dd{
+    position: relative;
+}
+.dd .dropdown-content {
+    display: none;
+    position: absolute;
+    top: 35px;
+}
+
+.dd:hover .dropdown-content{
+    display: block;
+}
