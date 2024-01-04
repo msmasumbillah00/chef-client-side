@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body{
-    min-height: 80vw;
+    min-height: 100vw;
 }
 .dd{
     position: relative;
@@ -17,3 +17,13 @@ body{
 .dd:hover .dropdown-content{
     display: block;
 }
+.baner{
+    background-image: url("https://static.vecteezy.com/system/resources/thumbnails/020/115/455/small/food-background-breakfast-with-yogurt-granola-or-muesli-strawberries-banner-image-for-website-photo.jpg");
+    background-size: cover;
+}
+
+@media (max-width: 768px) {
+    .baner{
+        background-image: url("https://plus.unsplash.com/premium_photo-1663858367001-89e5c92d1e0e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Zm9vZHxlbnwwfHwwfHx8MA%3D%3D");
+    }
+  }

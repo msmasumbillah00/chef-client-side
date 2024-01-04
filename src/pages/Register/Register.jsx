@@ -5,7 +5,7 @@ import { UserContext } from "../../context/UserContextProvider";
 const Register = () => {
     const [err, setErr] = useState("")
 
-    const { createUserWithEmailPAss, setUser } = useContext(UserContext);
+    const { user, createUserWithEmailPAss, setUser, updateProfileDetails } = useContext(UserContext);
     const navigate = useNavigate();
 
     const handelCreateNewUser = (e) => {
@@ -14,8 +14,8 @@ const Register = () => {
         const form = e.target;
         const email = form.email.value;
         const pass = form.pass.value;
-        // const name = form.name.value;
-        // const photo = form.photo.value;
+        const name = form.name.value;
+        const photo = form.photo.value;
         if (pass.length < 6) {
             setErr("Passwords must be at least 6 characters");
             return;
@@ -34,8 +34,7 @@ const Register = () => {
                 navigate("/")
                 setErr("")
                 form.reset();
-
-
+                setTimeout(() => { handelUpdateProfileDetails(name, photo) }, 1000)
             })
             .catch(error => {
                 setErr(error.message)
@@ -45,18 +44,17 @@ const Register = () => {
 
     }
 
-    // const handelUpdateProfileDetails = () => {
-    //     const form = document.getElementById("frm")
-    //     const name = form.name.value;
-    //     const photo = form.photo.value;
-    //     updateProfileDetails(name, photo)
-    //         .then(() => {
-    //             console.log(user)
-    //         })
-    //         .catch(error => {
-    //             console.log(error.message)
-    //         });
-    // }
+    const handelUpdateProfileDetails = (name, photo) => {
+
+        updateProfileDetails(name, photo)
+            .then(() => {
+                console.log(user)
+
+            })
+            .catch(error => {
+                console.log(error.message)
+            });
+    }
 
     return (
         <div className="container mx-auto mt-20">

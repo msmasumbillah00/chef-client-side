@@ -41,7 +41,7 @@ const NAvigation = () => {
                                 d="M4 6h16M4 12h16m-7 6h7"></path>
                         </svg>
                     </button>
-                    <div className={`md:flex ${isNavOpen ? 'flex' : 'hidden'} bg-neutral flex-col absolute left-0  ${!isNavOpen ? 'tor-0' : 'top-16'}  p-4 md:static   md:flex-row space-y-2 md:space-y-0 md:space-x-4`}>
+                    <div className={`md:flex ${isNavOpen ? 'flex' : 'hidden'} bg-neutral z-50 flex-col absolute left-0  ${!isNavOpen ? 'tor-0' : 'top-16'}  p-4 md:static   md:flex-row space-y-2 md:space-y-0 md:space-x-4`}>
                         <Link to="/" className="text-white btn-ghost px-5">Home</Link>
                         <Link to="#" className="text-white btn-ghost px-5">About</Link>
                         <Link to="#" className="text-white btn-ghost px-5">Services</Link>
