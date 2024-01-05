@@ -4,10 +4,12 @@ import Header from "../../component/Header/Header";
 
 const Main = () => {
     return (
-        <div>
+        <div className="d-flex">
             <Header></Header>
             <Outlet></Outlet>
-            <Footer></Footer>
+            <div className="">
+                <Footer></Footer>
+            </div>
         </div>
     );
 };

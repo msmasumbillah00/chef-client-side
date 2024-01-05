@@ -8,6 +8,7 @@ import UserContextProvider from './context/UserContextProvider.jsx'
 import Profile from './pages/Profile/Profile';
 import Register from './pages/Register/Register.jsx'
 import Login from './pages/Login/Login.jsx'
+import Recipes from './pages/Recipes/Recipes.jsx'
 
 
 const router = createBrowserRouter([
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
       {
         path: "login",
         element: <Login></Login>
+      },
+      {
+        path: "/recipes/:chefId",
+        element: <Recipes></Recipes>
       },
       {
         path: "profile",

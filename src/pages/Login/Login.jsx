@@ -81,8 +81,7 @@ const Login = () => {
 
                         </form>
                         <div className="form-control mb-6">
-                            <p className="text-center"> Or Sing In With</p>
-                            <div className=" flex justify-center mt-3">
+                            <div className="divider divider-primary px-8">OR Or Sing In With</div>       <div className=" flex justify-center mt-3">
                                 <button onClick={handelGoogleSingIn} className="btn me-4  btn-circle btn-outline btn-info"><FaGoogle className="text-3xl text-white" /></button>
                                 <button onClick={handelGithubSingIn} className="btn  btn-circle btn-outline btn-info"><FaGithub className="text-3xl text-white" /></button>
                             </div>
