@@ -7,7 +7,7 @@ const Main = () => {
         <div className="d-flex">
             <Header></Header>
             <Outlet></Outlet>
-            <div className="">
+            <div className="bg-base-200">
                 <Footer></Footer>
             </div>
         </div>

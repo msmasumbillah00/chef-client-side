@@ -34,7 +34,7 @@ const Chef = () => {
     };
     return (
         <div className=" mt-4 lg:mt-8">
-            <div className="baner-title container mx-auto p-5 lg:p-8">
+            <div className="container mx-auto p-5 lg:p-8">
                 <h1 className=" text-4xl font-bold text-black lg:text-6xl ">Fiend The Best Chef Yours Nearby.</h1>
             </div>
             <div className="container mx-auto p-5 lg:p-10">

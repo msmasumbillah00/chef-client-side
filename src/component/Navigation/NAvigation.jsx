@@ -25,8 +25,8 @@ const NAvigation = () => {
     }
 
     return (
-        <div className="bg-neutral sticky top-0">
-            <div className="navbar container mx-auto">
+        <div className="bg-neutral">
+            <div className="navbar container sticky top-0 mx-auto">
                 <div className="flex-1">
                     <Link to="/" className="btn btn-ghost text-xl">KitchenMaestro</Link>
                 </div>

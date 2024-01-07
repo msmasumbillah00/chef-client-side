@@ -3,7 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from "../../context/UserContextProvider";
 
 const Register = () => {
-    const [err, setErr] = useState("")
+    const [err, setErr] = useState("");
+    const [accept, setAccept] = useState(true);
 
     const { user, createUserWithEmailPAss, setUser, updateProfileDetails } = useContext(UserContext);
     const navigate = useNavigate();
@@ -93,8 +94,12 @@ const Register = () => {
                                 </label>
                             </div>
                             <p className="text-red-600">{err}</p>
+                            <label className="flex items-center">
+                                <input type="checkbox" onChange={() => setAccept(!accept)} className="checkbox checkbox-primary me-2" />
+                                <small><Link to="/tram-condition">Accept Trams & Conditions!!</Link></small>
+                            </label>
                             <div className="form-control mt-6">
-                                <button type="submit" className="btn btn-primary text-700 text-gray-50">Sing Up</button>
+                                <button type="submit" disabled={accept} className="btn btn-primary text-700 border text-gray-50">Sing Up</button>
                             </div>
                         </form>
                     </div>
