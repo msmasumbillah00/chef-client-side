@@ -18,6 +18,8 @@
 .baner{
     background-image: url("https://static.vecteezy.com/system/resources/thumbnails/020/115/455/small/food-background-breakfast-with-yogurt-granola-or-muesli-strawberries-banner-image-for-website-photo.jpg");
     background-size: cover;
+    background-position:unset
+
 }
 
 @media (max-width: 768px) {
@@ -30,8 +32,17 @@
     margin-bottom: 30px;
   }
   .scroll-container::-webkit-scrollbar {
-    width: 0px; /* Set the width of the scrollbar */
+    width: 3px;
+    
   }
   .fetured-recipies img{
     max-height: 500px;
   }
+.touch-email{
+  border-bottom: 2px solid;
+}
+.touch-email :focus{
+  border: none;
+  outline: none;
+}
+  

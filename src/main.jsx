@@ -8,7 +8,7 @@ import UserContextProvider from './context/UserContextProvider.jsx'
 import Profile from './pages/Profile/Profile';
 import Register from './pages/Register/Register.jsx'
 import Login from './pages/Login/Login.jsx'
-import Recipes from './pages/Recipes/Recipes.jsx'
+import ChefRecipies from './pages/ChefRecipies/ChefRecipies.jsx'
 
 
 const router = createBrowserRouter([
@@ -29,8 +29,9 @@ const router = createBrowserRouter([
         element: <Login></Login>
       },
       {
-        path: "/recipes/:chefId",
-        element: <Recipes></Recipes>
+        path: "/chef_recipes/:chefId",
+        element: <ChefRecipies></ChefRecipies>,
+        loader: ({ params }) => fetch(`http://localhost:3000/chef_recipes/${params.chefId}`)
       },
       {
         path: "profile",

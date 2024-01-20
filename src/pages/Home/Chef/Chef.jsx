@@ -77,7 +77,7 @@ const Chef = () => {
                                             <FcLike className="me-1" /> {c.likes}
                                         </div>
                                         <div className="card-actions justify-end">
-                                            <button className="btn btn-outline  btn-sm text-black"><Link to={`/recipes/${c.id}`}>View Recipes!</Link></button>
+                                            <button className="btn btn-outline  btn-sm text-black"><Link to={`/chef_recipes/${c.id}`}>View Recipes!</Link></button>
                                         </div>
                                     </div>
                                 </div>
