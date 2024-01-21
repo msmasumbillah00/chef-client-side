@@ -4,7 +4,9 @@ import { useState } from "react";
 
 const Recipe = ({ recipe, children }) => {
     const [isFavorite, setIsFavorite] = useState(false);
-    const [isVisible, setIsVisible] = useState(true)
+    const [isVisible, setIsVisible] = useState(true);
+
+
 
     const handelAddFavorite = () => {
         setIsFavorite(!isFavorite)
@@ -47,9 +49,11 @@ const Recipe = ({ recipe, children }) => {
                         children
                     }
                 </div>
-                <div className="">
+                <div className="flex justify-center items-center">
                     <button className="btn btn-sm btn-info text-white">Cook Now</button>
+                    <div>
 
+                    </div>
                 </div>
             </div>
         </div>

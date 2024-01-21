@@ -9,6 +9,7 @@ import Profile from './pages/Profile/Profile';
 import Register from './pages/Register/Register.jsx'
 import Login from './pages/Login/Login.jsx'
 import ChefRecipies from './pages/ChefRecipies/ChefRecipies.jsx'
+import ErrorPage from './pages/ErrorPage/ErrorPage.jsx'
 
 
 const router = createBrowserRouter([
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
       {
         path: "profile",
         element: <Profile></Profile>
+      },
+      {
+        path: "*",
+        element: <ErrorPage></ErrorPage>
       }
     ]
   }
