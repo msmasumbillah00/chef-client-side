@@ -1,9 +1,10 @@
-# Project Name
+# KitchenMaestro
 
-[![Build Status](https://travis-ci.org/username/repo.svg?branch=master)](https://travis-ci.org/username/repo)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![visit](http://localhost:5173/)for more details]
 
-A short description of your project.
+
+KitchenMaestro is a web application designed for chefs and cooking enthusiasts. Whether you're a professional chef or someone who loves experimenting with recipes at home, KitchenMaestro provides a platform to discover, save, and share your favorite recipes. Unleash your culinary creativity and become a maestro in the kitchen!
+
 
 ## Table of Contents
 
