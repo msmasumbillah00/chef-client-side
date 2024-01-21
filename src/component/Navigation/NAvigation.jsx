@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { LuLogIn, LuLogOut } from "react-icons/lu";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from "../../context/UserContextProvider";
 import { signOut } from "firebase/auth";
 import ActiveLink from "../ActiveLink/ActiveLink";
@@ -8,6 +8,7 @@ import ActiveLink from "../ActiveLink/ActiveLink";
 const NAvigation = () => {
     const { user, auth } = useContext(UserContext);
     const [isNavOpen, setIsNavOpen] = useState(false);
+    const navigate = useNavigate();
 
     useEffect(() => {
         window.addEventListener('resize', () => {
@@ -19,6 +20,7 @@ const NAvigation = () => {
         signOut(auth)
             .then(() => {
                 alert("You have been logged out")
+                navigate("/login");
             })
             .catch(error => {
                 console.log(error)
@@ -67,7 +69,7 @@ const NAvigation = () => {
                                             }
                                         </Link>
                                     </li>
-                                    <li><Link to="/register">Register</Link></li>
+                                    <li><Link to="/login">Login</Link></li>
                                     <li onClick={handelLogOut}><a>Logout <LuLogOut className="ms-auto"></LuLogOut></a> </li>
                                 </ul>
                             </div>

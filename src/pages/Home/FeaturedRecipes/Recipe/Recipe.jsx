@@ -1,4 +1,6 @@
 import { useState } from "react";
+import Rating from "react-rating";
+import { FaRegStar, FaStar } from "react-icons/fa";
 
 
 
@@ -49,10 +51,21 @@ const Recipe = ({ recipe, children }) => {
                         children
                     }
                 </div>
-                <div className="flex justify-center items-center">
+                <div className="flex justify-between items-center">
                     <button className="btn btn-sm btn-info text-white">Cook Now</button>
-                    <div>
-
+                    <div className=" text-yellow-600 flex items-center justify-center">
+                        <Rating
+                            placeholderRating={recipe.rating}
+                            emptySymbol={<FaRegStar />}
+                            readonly
+                            placeholderSymbol={<FaStar />}
+                            fullSymbol={<FaStar />}
+                        />
+                        <div className="ms-2">
+                            {
+                                recipe.rating
+                            }
+                        </div>
                     </div>
                 </div>
             </div>

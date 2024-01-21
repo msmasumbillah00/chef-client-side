@@ -14,6 +14,7 @@ const Login = () => {
         singInWithGoogle()
             .then(result => {
                 setUser(result.user)
+                navigate("/")
             })
             .catch(error => {
                 setError(error.message)
@@ -24,6 +25,7 @@ const Login = () => {
         singInWithGitHub()
             .then(result => {
                 setUser(result.user)
+                navigate("/")
             })
             .catch(error => {
                 setError(error.message)
