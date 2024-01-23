@@ -1,7 +1,7 @@
 import { useLocation } from "react-router-dom";
 
 
-const ErrorPage = ({ errorCode, errorMessage }) => {
+const ErrorPage = () => {
     const location = useLocation();
     return (
         <div>

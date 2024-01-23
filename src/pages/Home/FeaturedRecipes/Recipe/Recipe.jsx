@@ -42,7 +42,7 @@ const Recipe = ({ recipe, children }) => {
             </div>
             <div className="p-4 flex flex-col justify-between mx-auto w-4/5">
                 <div>
-                    <h1 className="text-3xl font-bold"> {recipe.recipi_name}</h1>
+                    <h1 className="text-3xl font-bold"> {recipe.recipe_name}</h1>
                     <p className="my-3">Made by <span className="text-2xl "><i>{recipe.chef_name}</i></span></p>
                     <p className="first-letter:text-3xl first-letter:font-bold mb-4 line-clamp-4 md:line-clamp-none leading-7">{recipe.description}</p>
                 </div>

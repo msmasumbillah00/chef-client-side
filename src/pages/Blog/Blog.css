@@ -1,0 +1,29 @@
+/* Accordion styles */
+.accordion-item {
+    background-color: #f0f0f0;
+    border-radius: 0.25rem;
+    margin-bottom: 0.5rem;
+    overflow: hidden;
+    transition: all 1s ease; /* Add a smooth transition for height changes */
+  }
+  
+  /* Accordion header styles */
+  .accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    cursor: pointer;
+  }
+  
+  /* Accordion content styles */
+  .accordion-content {
+    padding: 1rem;
+    display: none; /* Initially hide the content */
+  }
+  
+  /* Show the content when the accordion is open */
+  .accordion-item.open .accordion-content {
+    display: block;
+  }
+  
