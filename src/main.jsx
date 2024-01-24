@@ -11,6 +11,7 @@ import Login from './pages/Login/Login.jsx'
 import ChefRecipies from './pages/ChefRecipies/ChefRecipies.jsx'
 import ErrorPage from './pages/ErrorPage/ErrorPage.jsx'
 import Blog from './pages/Blog/Blog.jsx'
+import PrivateRout from './component/PrivateRout/PrivateRout.jsx'
 
 
 const router = createBrowserRouter([
@@ -32,7 +33,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/chef_recipes/:chefId",
-        element: <ChefRecipies></ChefRecipies>,
+        element: <PrivateRout> <ChefRecipies></ChefRecipies></PrivateRout>,
         loader: ({ params }) => fetch(`http://localhost:3000/chef_recipes/${params.chefId}`)
       },
       {

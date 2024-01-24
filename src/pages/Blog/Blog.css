@@ -4,7 +4,7 @@
     border-radius: 0.25rem;
     margin-bottom: 0.5rem;
     overflow: hidden;
-    transition: all 1s ease; /* Add a smooth transition for height changes */
+    /* Add a smooth transition for height changes */
   }
   
   /* Accordion header styles */
@@ -24,6 +24,9 @@
   
   /* Show the content when the accordion is open */
   .accordion-item.open .accordion-content {
+    position: absolute;
+    background-color: rgb(245, 248, 248);
     display: block;
+    transition: all 1s ease;
   }
   

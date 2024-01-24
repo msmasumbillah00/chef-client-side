@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import { useContext, useState } from "react";
 import { UserContext } from "../../context/UserContextProvider";
@@ -6,15 +6,19 @@ import { UserContext } from "../../context/UserContextProvider";
 
 const Login = () => {
     const [error, setError] = useState("");
-    const { singInWithGoogle, singInWithGitHub, singInWithEmailPAss, setUser } = useContext(UserContext);
+    const { singInWithGoogle, singInWithGitHub, singInWithEmailPAss, setUser, setLoading } = useContext(UserContext);
     const navigate = useNavigate();
+    const location = useLocation();
+    const path = location?.state?.from?.pathname || "/"
+    console.log(location)
 
     const handelGoogleSingIn = () => {
         setError("")
         singInWithGoogle()
             .then(result => {
-                setUser(result.user)
-                navigate("/")
+                setUser(result.user);
+                setLoading(false)
+                navigate(path)
             })
             .catch(error => {
                 setError(error.message)
@@ -25,7 +29,8 @@ const Login = () => {
         singInWithGitHub()
             .then(result => {
                 setUser(result.user)
-                navigate("/")
+                setLoading(false)
+                navigate(path)
             })
             .catch(error => {
                 setError(error.message)
@@ -42,8 +47,9 @@ const Login = () => {
         singInWithEmailPAss(email, pass)
             .then(result => {
                 setUser(result.user)
+                setLoading(false)
                 form.reset();
-                navigate("/")
+                navigate(path)
             })
             .catch(error => {
                 setError(error.message)

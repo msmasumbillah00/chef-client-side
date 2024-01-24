@@ -27,9 +27,9 @@ const Blog = () => {
         },
     ];
     return (
-        <div className='container mx-auto'>
+        <div className='container mx-auto relative'>
             <h1 className='text-center text-5xl mt-24 font-semibold text-black'>Welcome to My Blog</h1>
-            <div className="w-md mx-auto  mt-24 lg:max-w-screen-lg  h-full ">
+            <div className="w-md relative mx-auto  mt-24 lg:max-w-screen-lg  h-full ">
                 <h1 className='text-3xl text-black my-8'>***Some Importent questions that you have to know!!!</h1>
 
                 {accordionData.map((section, index) => (
