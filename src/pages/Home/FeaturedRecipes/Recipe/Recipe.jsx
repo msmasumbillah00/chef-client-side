@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Rating from "react-rating";
 import { FaRegStar, FaStar } from "react-icons/fa";
+import LazyLoad from 'react-lazy-load';
 
 
 
@@ -18,7 +19,10 @@ const Recipe = ({ recipe, children }) => {
     return (
         <div className="grid relative mb-10 grid-cols-1 gap-5 lg:grid-cols-2 lg:py-16 mt-4 shadow-lg rounded-xl ">
             <div className="rounded-xl  rounded-md overflow-hidden ">
-                <img className="hover:scale-125 rounded-md transition-all z-0 mx-auto w-3/5 min-h-full  duration-1000" src={recipe.photo} alt="" />
+                <LazyLoad>
+                    <img className="hover:scale-125 rounded-md transition-all z-0 mx-auto w-3/5 min-h-full  duration-1000" src={recipe.photo} alt="" />
+
+                </LazyLoad>
                 <div onClick={handelAddFavorite} className="absolute top-0 right-0">
                     {
                         <div className="tooltip tooltip-left z-50 " data-tip={!isFavorite ? "add to favorite" : "Remove from Favorite"}>

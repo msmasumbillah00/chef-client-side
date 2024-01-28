@@ -1,5 +1,10 @@
 import { useState } from 'react';
 import "./Blog.css"
+import jsPDF from 'jspdf';
+import { FaDownload } from "react-icons/fa";
+
+
+
 const Blog = () => {
 
     const [openSection, setOpenSection] = useState(null);
@@ -22,12 +27,40 @@ const Blog = () => {
             content: 'Node.js is the runtime environment that allows you to run JavaScript on the server, while Express.js is a web application framework built on top of Node.js, providing a set of tools and features to simplify the process of building web applications.',
         },
         {
-            title: 'What is a custom hook, and why will you create a custom hook?            ',
+            title: 'What is a custom hook, and why will you create a custom hook',
             content: 'A custom hook in React is a JavaScript function that allows you to reuse stateful logic across multiple components.creating custom hooks in React offers a powerful way to encapsulate and share logic, promote code reusability, and improve the overall maintainability and readability of my applications.',
         },
     ];
+
+
+    let data = "";
+    for (let i = 0; i < accordionData.length; i++) {
+        data +=
+            `
+${i + 1}) ${accordionData[i].title}? 
+Ans:- ${accordionData[i].content} 
+        `
+    }
+    console.log(data)
+
+
+    const generatePDF = () => {
+        const doc = new jsPDF();
+        const maxWidth = 190;
+        const lines = doc.splitTextToSize(data, maxWidth);
+        let yPos = 7;
+
+        lines.forEach((line) => {
+            doc.text(line, 10, yPos, { align: 'left' });
+            yPos += 10; // Adjust the line spacing according to your needs
+        });
+        doc.save('generated-pdf.pdf');
+    };
     return (
-        <div className='container mx-auto relative'>
+        <div className='container mx-auto relative ' id='pdf-content'>
+            <div className="tooltip tooltip-left absolute top-4 right-0" data-tip="Download as PDF">
+                <button onClick={generatePDF} className="btn  bg-slate-700 btn-sm"><FaDownload /></button>
+            </div>
             <h1 className='text-center text-5xl mt-24 font-semibold text-black'>Welcome to My Blog</h1>
             <div className="w-md relative mx-auto  mt-24 lg:max-w-screen-lg  h-full ">
                 <h1 className='text-3xl text-black my-8'>***Some Importent questions that you have to know!!!</h1>
