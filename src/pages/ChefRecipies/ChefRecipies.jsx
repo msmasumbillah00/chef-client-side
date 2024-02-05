@@ -2,12 +2,16 @@ import { useLoaderData } from "react-router-dom";
 import numeral from 'numeral';
 import { useEffect, useState } from "react";
 import Recipe from "../Home/FeaturedRecipes/Recipe/Recipe";
+import { useContext } from "react";
+import { DataContext } from "../../context/DataContextProvider";
 
 
 const ChefRecipies = () => {
     const data = useLoaderData();
     const [recipes, setRecipes] = useState([]);
     const { likes, id, name, number_of_recipes, bio, photo_url, years_of_experience } = data;
+    const { favoriteRecipies } = useContext(DataContext);
+    console.log(favoriteRecipies)
     useEffect(() => {
         fetch(`http://localhost:3000/recipies/${id}`)
             .then(res => res.json())
@@ -15,7 +19,7 @@ const ChefRecipies = () => {
     }, [])
     return (
         <div className="container mx-auto">
-            <h2 className=" text-center text-5xl p-5 mt-9 text-black font-bold mb-3 lg:text-6xl">{name}</h2>
+            <h2 className=" text-center text-5xl p-5 mt-9 text-black font-bold mb-3 lg:text-6xl">{name}{favoriteRecipies}</h2>
             <div className="chef-baner">
                 <div className="grid grid-cols-1 lg:grid-cols-2">
                     <div className="chef-pic h-screen p-4">

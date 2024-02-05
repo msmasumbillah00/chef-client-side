@@ -12,6 +12,8 @@ import ChefRecipies from './pages/ChefRecipies/ChefRecipies.jsx'
 import ErrorPage from './pages/ErrorPage/ErrorPage.jsx'
 import Blog from './pages/Blog/Blog.jsx'
 import PrivateRout from './component/PrivateRout/PrivateRout.jsx'
+import DataContextProvider from './context/DataContextProvider.jsx'
+import FavoriteRecipies from './pages/FavoriteRecipies/FavoriteRecipies.jsx'
 
 
 const router = createBrowserRouter([
@@ -45,6 +47,10 @@ const router = createBrowserRouter([
         element: <Blog></Blog>
       },
       {
+        path: "cart",
+        element: <PrivateRout><FavoriteRecipies></FavoriteRecipies></PrivateRout>
+      },
+      {
         path: "*",
         element: <ErrorPage></ErrorPage>
       }
@@ -54,8 +60,10 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <UserContextProvider>
-      <RouterProvider router={router}></RouterProvider>
-    </UserContextProvider>
+    <DataContextProvider>
+      <UserContextProvider>
+        <RouterProvider router={router}></RouterProvider>
+      </UserContextProvider>
+    </DataContextProvider>
   </React.StrictMode>,
 )

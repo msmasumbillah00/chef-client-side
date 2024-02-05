@@ -6,7 +6,6 @@ import Loading from "../Loading/Loading";
 const PrivateRout = ({ children }) => {
     const { user, loading } = useContext(UserContext);
     const location = useLocation();
-    console.log(location)
     if (loading) {
         return <Loading></Loading>
     }

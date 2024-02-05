@@ -1,26 +1,45 @@
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Rating from "react-rating";
 import { FaRegStar, FaStar } from "react-icons/fa";
 import LazyLoad from 'react-lazy-load';
+import { DataContext } from "../../../../context/DataContextProvider";
 
 
 
 const Recipe = ({ recipe, children }) => {
     const [isFavorite, setIsFavorite] = useState(false);
     const [isVisible, setIsVisible] = useState(true);
+    const { favoriteRecipies, setFavoriteRecipies } = useContext(DataContext);
+    // console.log(favoriteRecipies)
+    useEffect(() => {
+        if (favoriteRecipies.includes(recipe.id)) {
+            setIsFavorite(true)
+        }
+    }, [])
 
+    const handelDataBase = (data, isFavorite) => {
+        const storedData = JSON.parse(localStorage.getItem("FavoriteRecipies")) || favoriteRecipies;
+        if (!isFavorite) {
+            setFavoriteRecipies([...favoriteRecipies, data])
+        }
+        if (isFavorite) {
+            setFavoriteRecipies(favoriteRecipies.filter(item => item !== data))
+        }
+        localStorage.setItem("FavoriteRecipies", JSON.stringify(favoriteRecipies));
+    }
 
 
     const handelAddFavorite = () => {
         setIsFavorite(!isFavorite)
         setIsVisible(false)
-        setTimeout(() => setIsVisible(true), 3000)
+        setTimeout(() => setIsVisible(true), 3000);
+        handelDataBase(recipe.id, isFavorite)
     }
     return (
         <div className="grid relative mb-10 grid-cols-1 gap-5 lg:grid-cols-2 lg:py-16 mt-4 shadow-lg rounded-xl ">
             <div className="rounded-xl  rounded-md overflow-hidden ">
                 <LazyLoad>
-                    <img className="hover:scale-125 rounded-md transition-all z-0 mx-auto w-3/5 min-h-full  duration-1000" src={recipe.photo} alt="" />
+                    <img className="hover:scale-125 object-cover rounded-md transition-all z-0 mx-auto w-3/5 min-h-full  duration-1000" src={recipe.photo} alt="" />
 
                 </LazyLoad>
                 <div onClick={handelAddFavorite} className="absolute top-0 right-0">

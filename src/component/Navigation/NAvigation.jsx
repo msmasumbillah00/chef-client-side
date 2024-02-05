@@ -4,6 +4,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from "../../context/UserContextProvider";
 import { signOut } from "firebase/auth";
 import ActiveLink from "../ActiveLink/ActiveLink";
+import { FaShoppingCart } from "react-icons/fa";
+
 
 const NAvigation = () => {
     const { user, auth } = useContext(UserContext);
@@ -44,12 +46,13 @@ const NAvigation = () => {
                                 d="M4 6h16M4 12h16m-7 6h7"></path>
                         </svg>
                     </button>
-                    <div className={`md:flex ${isNavOpen ? 'flex' : 'hidden'} bg-neutral z-50 flex-col absolute left-0  ${!isNavOpen ? 'tor-0' : 'top-16'}  p-4 md:static   md:flex-row space-y-2 md:space-y-0 md:space-x-4`}>
+                    <div className={`md:flex ${isNavOpen ? 'flex' : 'hidden'} bg-neutral z-50 flex-col items-center absolute left-0  ${!isNavOpen ? 'tor-0' : 'top-16'}  p-4 md:static   md:flex-row space-y-2 md:space-y-0 md:space-x-4`}>
                         <ActiveLink to="/" className="text-white btn-ghost px-5">Home</ActiveLink>
                         <ActiveLink to="/about" className="text-white btn-ghost px-5">About</ActiveLink>
                         <ActiveLink to="/services" className="text-white btn-ghost px-5">Services</ActiveLink>
                         <ActiveLink to="contact" className="text-white btn-ghost px-5">Contact</ActiveLink>
                         <ActiveLink to="blog" className="text-white btn-ghost px-5">Blog</ActiveLink>
+                        <ActiveLink to="cart" className="text-white btn-ghost px-5"><FaShoppingCart /></ActiveLink>
                     </div>
                 </div>
                 <div className="flex-none">
