@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import { GithubAuthProvider, GoogleAuthProvider, signInWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithPopup, createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { GithubAuthProvider, GoogleAuthProvider, signInWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithPopup, createUserWithEmailAndPassword, updateProfile, sendPasswordResetEmail } from "firebase/auth";
 import app from './../firebase/firebase.init';
 
 
@@ -56,6 +56,14 @@ const UserContextProvider = ({ children }) => {
 
         })
     }
+    const resetPassword = (email) => {
+        sendPasswordResetEmail(auth, email)
+            .then(() => alert("password reset link set to your email. Pleace check your Email to reset your Password."))
+            .catch(error => {
+                console.log(error)
+            })
+
+    }
 
 
     const contextInfo = {
@@ -64,6 +72,7 @@ const UserContextProvider = ({ children }) => {
         singInWithEmailPAss,
         createUserWithEmailPAss,
         updateProfileDetails,
+        resetPassword,
         user,
         setUser,
         auth,

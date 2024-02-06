@@ -61,7 +61,9 @@ const NAvigation = () => {
                             <div className="dd hover:block dropdown-end">
                                 <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                                     <div className="w-10 rounded-full">
-                                        <img alt="Tailwind CSS Navbar component" src={user.photoURL || `https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg`} />
+                                        <Link to="profile">
+                                            <img alt="Tailwind CSS Navbar component" src={user.photoURL || `https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg`} />
+                                        </Link>
                                     </div>
                                 </div>
                                 <ul tabIndex={0} className="menu menu-sm rounded dropdown-content mt-3 z-[1] p-2 shadow bg-base-100  w-52">

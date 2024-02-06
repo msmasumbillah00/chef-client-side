@@ -14,6 +14,8 @@ import Blog from './pages/Blog/Blog.jsx'
 import PrivateRout from './component/PrivateRout/PrivateRout.jsx'
 import DataContextProvider from './context/DataContextProvider.jsx'
 import FavoriteRecipies from './pages/FavoriteRecipies/FavoriteRecipies.jsx'
+import ResetPassword from './pages/ResetPassword/ResetPassword.jsx'
+import About from './pages/About/About.jsx'
 
 
 const router = createBrowserRouter([
@@ -49,6 +51,14 @@ const router = createBrowserRouter([
       {
         path: "cart",
         element: <PrivateRout><FavoriteRecipies></FavoriteRecipies></PrivateRout>
+      },
+      {
+        path: "about",
+        element: <PrivateRout><About></About></PrivateRout>
+      },
+      {
+        path: "forgetPass",
+        element: <ResetPassword></ResetPassword>
       },
       {
         path: "*",

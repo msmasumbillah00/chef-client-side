@@ -93,6 +93,7 @@ const Login = () => {
                                 <button onClick={handelGoogleSingIn} className="btn me-4  btn-circle btn-outline btn-info"><FaGoogle className="text-3xl text-white" /></button>
                                 <button onClick={handelGithubSingIn} className="btn  btn-circle btn-outline btn-info"><FaGithub className="text-3xl text-white" /></button>
                             </div>
+                            <small className="flex mx-auto mt-3"><Link to="/forgetPass">forget Password?</Link></small>
                         </div>
                     </div>
                 </div>
